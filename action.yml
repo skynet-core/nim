@@ -3,6 +3,11 @@ description: 'Nim language with tools'
 branding:
   icon: 'box'  
   color: 'yellow'
+inputs:
+  command:
+    description: 'Command to run'
+    required: true
+    default: 'nimble build --gcc.exe:gcc --gcc.linkerexe:gcc --passL:-static -d:release --opt:size -y'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://smartcoder/nim:1.4.2-alpine3.12.1'
