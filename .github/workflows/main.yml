@@ -2,7 +2,7 @@ name: Build and deploy Nim action
 on:
   push:
     tags:
-      - 'v[0-9]'
+      - 'v*.*'
 jobs:
   build:
     runs-on: ubuntu-latest
