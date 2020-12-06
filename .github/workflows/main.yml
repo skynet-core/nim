@@ -12,7 +12,12 @@ jobs:
     - name: Docker Meta
       id: shell-vars
       run: |
+        nim_ver=$(curl -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/nim-lang/Nim/tags | jq -r '.[].name' | sort -rV | head -n 1)
+        alpine_ver=$(./scripts/tags.sh "library/alpine")
         tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo "::set-output name=NIM_VER::$nim_ver"
+        echo "::set-output name=ALPINE_VER::$alpine_ver"
         echo "::set-output name=TAG::$tag"
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
@@ -30,4 +35,7 @@ jobs:
         file: ./docker/Dockerfile
         platforms: linux/amd64
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/nim:${{ steps.shell-vars.outputs.TAG }}-alpine3.12.1
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/nim:${{ steps.shell-vars.outputs.TAG }}
+        build-args: |
+            ALPINE_VER=${{ steps.shell-vars.outputs.ALPINE_VER }}
+            VERSION=${{ steps.shell-vars.outputs.NIM_VER }}

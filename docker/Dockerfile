@@ -1,4 +1,6 @@
-FROM alpine:3.12.1
+ARG ALPINE_VER=3.12.1
+
+FROM alpine:${ALPINE_VER}
 
 ARG VERSION=1.4.2
 
