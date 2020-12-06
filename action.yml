@@ -1,5 +1,8 @@
 name: 'NIM Lang Alpine'
 description: 'Nim language with tools'
+branding:
+  icon: 'box'  
+  color: 'yellow'
 runs:
   using: 'docker'
   image: 'Dockerfile'
