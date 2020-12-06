@@ -13,7 +13,7 @@ jobs:
       id: shell-vars
       run: |
         nim_ver=$(curl -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/nim-lang/Nim/tags | jq -r '.[].name' | sort -rV | head -n 1)
+          https://api.github.com/repos/nim-lang/Nim/tags | jq -r '.[].name' | sort -rV | head -n 1 | tr -d 'v')
         alpine_ver=$(./scripts/tags.sh "library/alpine" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+' | sort -rV | head -n 1)
         tag=$(git describe --tags `git rev-list --tags --max-count=1`)
         echo "::set-output name=NIM_VER::$nim_ver"
