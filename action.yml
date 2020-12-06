@@ -7,7 +7,7 @@ inputs:
   command:
     description: 'Command to run'
     required: true
-    default: 'nimble build --nimbleDir:/tmp/.nimble --gcc.exe:gcc --gcc.linkerexe:gcc --passL:-static -d:release --opt:size -y'
+    default: 'nimble build --nimcache:/tmp/.cache --nimbleDir:/tmp/.nimble --gcc.exe:gcc --gcc.linkerexe:gcc --passL:-static -d:release --opt:size -y'
 runs:
   using: 'docker'
-  image: 'docker://smartcoder/nim:v1.1'
+  image: 'docker://smartcoder/nim:v1.2'

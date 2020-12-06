@@ -11,14 +11,14 @@ Nim language compiler and tools within Alpine 3.12 image built with musl.
 
 ### `command`
 
-**Optional** Command to run. Default is `nimble build --gcc.exe:gcc --gcc.linkerexe:gcc --passL:-static -d:release --opt:size -y`
+**Optional** Command to run. Default is `nimble build --nimcache:/tmp/.cache --nimbleDir:/tmp/.nimble --gcc.exe:gcc --gcc.linkerexe:gcc --passL:-static -d:release --opt:size -y`
 
 ## Example usage
 
 Run tests and set `STATUS` output variable
 
     - name: Run tests
-      uses: skynet-core/nim@v1.1
+      uses: skynet-core/nim@v1.2
       id: nim-test
       with:
-        command: 'nimble test && echo "::set-output name=STATUS::true"'
+        command: 'nimble build --nimcache:/tmp/.cache --nimbleDir:/tmp/.nimble --gcc.exe:gcc --gcc.linkerexe:gcc --passL:-static -d:release --opt:size -y'
