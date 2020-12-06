@@ -26,5 +26,5 @@ jobs:
         platforms: linux/amd64,linux/arm64,linux/386
         push: true
         tags: 
-          - ${{secrets.DOCKERHUB_USERNAME}}/nim:${{ github.ref }-alpine3.12.1
+          - ${{secrets.DOCKERHUB_USERNAME}}/nim:${{ github.ref }}-alpine3.12.1
           - ${{secrets.DOCKERHUB_USERNAME}}/nim:latest
