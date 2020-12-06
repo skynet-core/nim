@@ -10,4 +10,4 @@ inputs:
     default: 'nimble build --nimbleDir:/tmp/.nimble --gcc.exe:gcc --gcc.linkerexe:gcc --passL:-static -d:release --opt:size -y'
 runs:
   using: 'docker'
-  image: 'docker://smartcoder/nim:v1.0'
+  image: 'docker://smartcoder/nim:v1.1'
