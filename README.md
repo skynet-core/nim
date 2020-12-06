@@ -1,6 +1,9 @@
 # Nim Compiler as GitHub action
 
 ![build](https://img.shields.io/github/workflow/status/skynet-core/nim/main?style=for-the-badge)
+![downloads](https://img.shields.io/github/downloads/skynet-core/nim/total?style=for-the-badge)
+![last commit](https://img.shields.io/github/last-commit/skynet-core/nim?style=for-the-badge)
+![last release](https://img.shields.io/github/release-date/skynet-core/nim?color=red&logoColor=green&style=for-the-badge)
 
 Nim language compiler and tools within Alpine 3.12 image built with musl.
 
