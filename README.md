@@ -1,7 +1,6 @@
 # Nim Compiler as GitHub action
 
-[![release](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg)](https://github.com/skynet-core/nim/releases/latest)
-[![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-gh-pages.svg)](https://github.com/skynet-core/nim/releases)
+![build](https://img.shields.io/github/workflow/status/skynet-core/nim/main?style=for-the-badge)
 
 Nim language compiler and tools within Alpine 3.12 image built with musl.
 
@@ -16,7 +15,7 @@ Nim language compiler and tools within Alpine 3.12 image built with musl.
 Run tests and set `STATUS` output variable
 
     - name: Run tests
-      uses: skynet-core/nim@v1.1
+      uses: skynet-core/nim@v1.2
       id: nim-test
       with:
         command: 'nimble test && echo "::set-output name=STATUS::true"'
