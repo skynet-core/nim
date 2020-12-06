@@ -28,6 +28,6 @@ jobs:
       with:
         context: ./docker
         file: ./docker/Dockerfile
-        platforms: linux/amd64,linux/arm64,linux/386
+        platforms: linux/amd64
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/nim:${{ steps.shell-vars.outputs.TAG }}-alpine3.12.1
