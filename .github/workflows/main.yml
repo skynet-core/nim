@@ -9,6 +9,11 @@ jobs:
     steps:  
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Docker Meta
+      id: shell-vars
+      run: |
+        tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+        echo "::set-output name=TAG::$tag"
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
     - name: Set up Docker Buildx
@@ -20,9 +25,12 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push
       uses: docker/build-push-action@v2
+      env:
+        REF: ${{ github.ref }}
+        USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
       with:
         context: ./docker
         file: ./docker/Dockerfile
         platforms: linux/amd64,linux/arm64,linux/386
         push: true
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/nim:${{ github.ref }}-alpine3.12.1
+        tags: $USERNAME/nim:${{ steps.shell-vars.outputs.TAG }}-alpine3.12.1
