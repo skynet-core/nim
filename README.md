@@ -13,7 +13,7 @@ Nim language compiler and tools within Alpine 3.12 image built with musl.
 Run tests and set `STATUS` output variable
 
     - name: Run tests
-      uses: skynet-core/nim@v0.3.0
+      uses: skynet-core/nim@v1
       id: nim-test
       with:
         command: 'nimble test && echo "::set-output name=STATUS::true"'
