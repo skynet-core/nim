@@ -1,7 +1,8 @@
 name: Build and deploy Nim action
 on:
-  push: [$default-branch]
-
+  push:
+    tags:
+      - 'v*.*.*'
 jobs:
   build:
     runs-on: ubuntu-latest
